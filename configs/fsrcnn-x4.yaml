@@ -1,0 +1,73 @@
+scale: 4
+#seed: 0
+
+train_dataset:
+  dataset:
+    name: paired-image-folders
+    args:
+      root_path_hr: ../datasets/train/DIV2K/Aug_sub/HR/X4 ### set path
+      root_path_lr: ../datasets/train/DIV2K/Aug_sub/LR_bicubic/X4 ### set path
+  wrapper:
+    name: sr-implicit-paired
+    args:
+      #inp_size: 32 # lr, already cropped
+      augment: [hflip, vflip, dflip]
+  batch_size: 16 # total
+  num_workers: 4 # total
+
+valid_dataset:
+  dataset:
+    name: paired-image-folders
+    args:
+      root_path_hr: ../datasets/valid/DIV2K/HR ### set path
+      root_path_lr: ../datasets/valid/DIV2K/LR_bicubic/X4 ### set path
+  wrapper:
+    name: sr-implicit-paired
+    args:
+      augment: null
+
+test_dataset:
+  dataset:
+    name: paired-image-folders
+    args: 
+      root_path_hr: null
+      root_path_lr: null
+  wrapper:
+    name: sr-implicit-paired
+    args:
+      augment: null
+
+psnr_type: rgb
+patch_size: 32
+step: 28
+
+data_norm:
+  mean: [0.0, 0.0, 0.0]
+  std : [1.0, 1.0, 1.0]
+
+model:
+  name: fsrcnn
+  args:
+    upscale: 4
+    d: 56
+    no_upsampling: false
+
+optimizer:
+  name: adam
+  args:
+    lr: 1.e-3
+    betas: [0.9, 0.99]
+    weight_decay: 0
+
+lr_scheduler:
+  name: CosineAnnealingLR_Restart
+  args:
+    T_period: [2000000]
+    restarts: [2000000]
+    weights: [1]
+    eta_min: 1.e-7
+
+iter_max: 2000000
+iter_print: 4000
+iter_val: 200000
+iter_save: 400000
