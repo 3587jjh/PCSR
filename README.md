@@ -15,11 +15,11 @@ python demo.py --img_path <image path> --k <value> [--adaptive] [--no_refinement
 For a detailed description of the arguments and types of output, please refer to `demo.py` and the `results` directory.
 <div style="display: flex;">
     <figure style="margin: 0; text-align: center;">
-        <img src="results/PCSR_colored.png" style="width: 352px; height: 232px; object-fit: cover;"/>
+        <img src="results/PCSR_colored.png" style="width: 280px; height: 184px; object-fit: cover;"/>
         <figcaption>Classification</figcaption>
     </figure>
     <figure style="margin: 0; text-align: center;">
-        <img src="results/PCSR.png" style="width: 352px; height: 232px; object-fit: cover;"/>
+        <img src="results/PCSR.png" style="width: 280px; height: 184px; object-fit: cover;"/>
         <figcaption>SR Result (X4)</figcaption>
     </figure>
 </div>
