@@ -1,0 +1,10 @@
+backbone: CARN
+model_original: #params=294.92K
+model: #params=168.97K
+
+hr_path: /workspace/test2k/HR/X4/1232.png
+scale: 4
+hr resolution (center_cropped):(1104, 1680)
+lr resolution: (276, 420)
+Original: 29.49 dB | 130.91G (100 %)
+Ours: 29.48 dB | 74.03G (57 %)
