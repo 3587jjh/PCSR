@@ -108,14 +108,14 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <img src="./static/images/teaser1.png" alt="Teaser1" style="margin-bottom: 40px;"/>
+        <img src="./static/images/teaser1.PNG" alt="Teaser1" style="margin-bottom: 40px;"/>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             In recent times, the need for effective super-resolution (SR) techniques has surged, especially for large-scale images ranging 2K to 8K resolutions. For DNN-based SISR, decomposing images into overlapping patches is typically necessary due to computational constraints. In such patch-decomposing scheme, one can allocate computational resources differently based on each patch's difficulty to further improve efficiency while maintaining SR performance. However, this approach has a limitation: computational resources is uniformly allocated within a patch, leading to lower efficiency when the patch contain pixels with varying levels of restoration difficulty. To address the issue, we propose the Pixel-level Classifier for Single Image Super-Resolution (PCSR), a novel method designed to distribute computational resources adaptively at the pixel level. A PCSR model comprises a backbone, a pixel-level classifier, and a set of pixel-level upsamplers with varying capacities. The pixel-level classifier assigns each pixel to an appropriate upsampler based on its restoration difficulty, thereby optimizing computational resource usage. Our method allows for performance and computational cost balance during inference without re-training. Our experiments demonstrate PCSR's advantage over existing patch-distributing methods in PSNR-FLOP trade-offs across different backbone models and benchmarks.
           </p>
         </div>
-        <img src="./static/images/teaser2.png" alt="Teaser2">
+        <img src="./static/images/teaser2.PNG" alt="Teaser2">
       </div>
     </div>
     <!--/ Abstract. -->
@@ -126,7 +126,7 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Overall Framework</h2>
-          <img src="./static/images/overview.png" alt="Overview" />
+          <img src="./static/images/overview.PNG" alt="Overview" />
           <div class="content has-text-justified">
           <p>
             <b>Overview of PCSR.</b>
@@ -143,13 +143,13 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Comparison with Previous Methods</h2>
-        <img src="./static/images/results_quantitative.png" alt="Main Quantitative Results" />
+        <img src="./static/images/results_quantitative.PNG" alt="Main Quantitative Results" />
         <div class="content has-text-justified">
           <p>
             The quantitative comparison of the previous patch-level methods and our pixel-level method PCSR on the large image SR benchmarks: Test2K, Test4K, Test8K, and Urban100 with ×4 SR. The lowest FLOPs values are highlighted in bold.
           </p>
         </div>
-        <img src="./static/images/results_qualitative.png" alt="Main Qualitative Results" style="margin-top: 40px;"/>
+        <img src="./static/images/results_qualitative.PNG" alt="Main Qualitative Results" style="margin-top: 40px;"/>
         <div class="content has-text-justified">
           <p>
             Qualitative results of previous methods and our method with X4 SR.
