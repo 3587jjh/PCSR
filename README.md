@@ -7,6 +7,12 @@
 </div> 
 <br>
 
+## Dependencies
+- Python 3.7<br>
+- Pytorch 1.13<br>
+- NVIDIA GPU + CUDA<br>
+- Python packages: `pip install numpy opencv-python pandas tqdm fast_pytorch_kmeans`
+
 ## Demo
 We offer a demo that can simulate 4x super-resolution using a single input image:
 ```
