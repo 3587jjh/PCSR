@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Single Image Super-Resolution">
+  <meta name="keywords" content="PCSR">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accelerating Image Super-Resolution Networks with Pixel-Level Classification</title>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M3DQFXZBJH"></script>
+ <script>
+   window.dataLayer = window.dataLayer || [];
+   function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+   gtag('config', 'G-M3DQFXZBJH');
+ </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Accelerating Image Super-Resolution Networks with Pixel-Level Classification</h1>
+          <h3 class="subtitle is-3 publication-conference">ECCV 2024</h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Jinho Jeong</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Jinwoo Kim</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Younghyun Jo</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              Seon Joo Kim</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Yonsei University,</span>
+            <span class="author-block"><sup>2</sup>Samsung Advanced Institute of Technology</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2407.21448"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2407.21448"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/3587jjh/PCSR"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="./static/images/teaser1.png" alt="Teaser1" style="margin-bottom: 40px;"/>
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In recent times, the need for effective super-resolution (SR) techniques has surged, especially for large-scale images ranging 2K to 8K resolutions. For DNN-based SISR, decomposing images into overlapping patches is typically necessary due to computational constraints. In such patch-decomposing scheme, one can allocate computational resources differently based on each patch's difficulty to further improve efficiency while maintaining SR performance. However, this approach has a limitation: computational resources is uniformly allocated within a patch, leading to lower efficiency when the patch contain pixels with varying levels of restoration difficulty. To address the issue, we propose the Pixel-level Classifier for Single Image Super-Resolution (PCSR), a novel method designed to distribute computational resources adaptively at the pixel level. A PCSR model comprises a backbone, a pixel-level classifier, and a set of pixel-level upsamplers with varying capacities. The pixel-level classifier assigns each pixel to an appropriate upsampler based on its restoration difficulty, thereby optimizing computational resource usage. Our method allows for performance and computational cost balance during inference without re-training. Our experiments demonstrate PCSR's advantage over existing patch-distributing methods in PSNR-FLOP trade-offs across different backbone models and benchmarks.
+          </p>
+        </div>
+        <img src="./static/images/teaser2.png" alt="Teaser2">
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overall Framework</h2>
+          <img src="./static/images/overview.png" alt="Overview" />
+          <div class="content has-text-justified">
+          <p>
+            <b>Overview of PCSR.</b>
+            The architecture of the proposed PCSR model when the number of classes M is 2. We denote q as a single query pixel in the HR space and x<sub>q</sub> for its coordinate. Pixel-level probabilities obtained from the classifier are used to allocate each query pixel to a suitably-sized upsampler for the prediction of its RGB value.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison with Previous Methods</h2>
+        <img src="./static/images/results_quantitative.png" alt="Main Quantitative Results" />
+        <div class="content has-text-justified">
+          <p>
+            The quantitative comparison of the previous patch-level methods and our pixel-level method PCSR on the large image SR benchmarks: Test2K, Test4K, Test8K, and Urban100 with ×4 SR. The lowest FLOPs values are highlighted in bold.
+          </p>
+        </div>
+        <img src="./static/images/results_qualitative.png" alt="Main Qualitative Results" style="margin-top: 40px;"/>
+        <div class="content has-text-justified">
+          <p>
+            Qualitative results of previous methods and our method with X4 SR.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section" id="Citation">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@misc{jeong2024acceleratingimagesuperresolutionnetworks,
+      title={Accelerating Image Super-Resolution Networks with Pixel-Level Classification}, 
+      author={Jinho Jeong and Jinwoo Kim and Younghyun Jo and Seon Joo Kim},
+      year={2024},
+      eprint={2407.21448},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.21448},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website template was borrowed from the <a href="https://nerfies.github.io/">Nerfies</a> project.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
