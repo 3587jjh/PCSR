@@ -56,5 +56,18 @@ python test.py --config <config path> --hr_data <hr foler> --lr_data <lr folder>
 python test_pcsr.py --config <config path> --hr_data <hr foler> --scale <integer scale> --per_image --crop --k 0 [--adaptive]
 ```
 
+## Citation
+```
+@misc{jeong2024acceleratingimagesuperresolutionnetworks,
+      title={Accelerating Image Super-Resolution Networks with Pixel-Level Classification}, 
+      author={Jinho Jeong and Jinwoo Kim and Younghyun Jo and Seon Joo Kim},
+      year={2024},
+      eprint={2407.21448},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2407.21448}, 
+}
+```
+
 ## Acknowledgement
 This repo is based on [LIIF](https://github.com/yinboc/liif) and [KAIR](https://github.com/cszn/KAIR). 
