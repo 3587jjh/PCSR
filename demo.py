@@ -29,7 +29,7 @@ def main():
     parser.add_argument('--pixel_batch_size', type=int, default=300000)
     parser.add_argument('--out_dir', type=str, default='results')
     args = parser.parse_args()
-
+    
     # load original model
     scale = 4
     resume_path = 'save/carn-x4/iter_last.pth'
@@ -60,6 +60,9 @@ def main():
 
     with torch.no_grad():
         hr_path = args.img_path
+        if hr_path.split('.')[-1] != 'png':
+            print('support png image only')
+            exit()
         hr = transforms.ToTensor()(Image.open(hr_path)).unsqueeze(0) # (1,3,H,W), range=[0,1]
 
         # center-crop hr to scale-divisible size
