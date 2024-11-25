@@ -64,14 +64,13 @@ python test_pcsr.py --config <config path> --hr_data <hr foler> --scale <integer
 
 ## Citation
 ```
-@misc{jeong2024acceleratingimagesuperresolutionnetworks,
-      title={Accelerating Image Super-Resolution Networks with Pixel-Level Classification}, 
-      author={Jinho Jeong and Jinwoo Kim and Younghyun Jo and Seon Joo Kim},
-      year={2024},
-      eprint={2407.21448},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2407.21448}, 
+@inproceedings{jeong2025accelerating,
+  title={Accelerating Image Super-Resolution Networks with Pixel-Level Classification},
+  author={Jeong, Jinho and Kim, Jinwoo and Jo, Younghyun and Kim, Seon Joo},
+  booktitle={European Conference on Computer Vision},
+  pages={236--251},
+  year={2025},
+  organization={Springer}
 }
 ```
 
