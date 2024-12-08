@@ -97,5 +97,5 @@ lr_scheduler:
 
 iter_max: 500000
 iter_print: 1000
-iter_val: 1000 #100000
+iter_val: 100000
 iter_save: 100000
