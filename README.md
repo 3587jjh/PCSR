@@ -16,7 +16,7 @@
 ## Demo
 We provide a demo that performs 4x super-resolution using an original input image (supports only 4x scaling and .png format):
 ```
-python demo.py --img_path <image path> --k <value> [--adaptive] [--no_refinement]
+python demo.py --img_path <image path> --k <value> --out_dir <output path> [--adaptive] [--no_refinement]
 ```
 For a detailed description of the arguments and outputs, please refer to `demo.py` and the `results` directory.
 <div style="display: flex;">
