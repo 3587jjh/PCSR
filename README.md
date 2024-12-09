@@ -14,7 +14,7 @@
 - Python packages: `pip install numpy opencv-python pandas tqdm fast_pytorch_kmeans`
 
 ## Demo
-We provide a demo that performs 4x super-resolution on a single input LR image (supports only 4x scaling and .png format):
+We provide a demo that performs 4x super-resolution using a input HR(original) image (supports only 4x scaling and .png format):
 ```
 python demo.py --img_path <image path> --k <value> [--adaptive] [--no_refinement]
 ```
