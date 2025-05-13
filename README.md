@@ -1,4 +1,4 @@
-# Accelerating Image Super-Resolution Networks with Pixel-Level Classification (ECCV 2024)
+# Accelerating Image Super-Resolution Networks with Pixel-Level Classification
 [![Project Page](https://img.shields.io/badge/Project-Page-green)](https://3587jjh.github.io/PCSR/)
 [![arXiv](https://img.shields.io/badge/arXiv-2407.21448-b31b1b)](https://arxiv.org/abs/2407.21448)
 
